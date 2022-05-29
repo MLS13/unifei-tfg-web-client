@@ -12,7 +12,7 @@ export class UserService {
 
   login(email: string, password: string): Observable<String> {
     console.log("E-mail: " + email + "\nSenha: " + password);
-    return this.httpClient.post<String>(this.constants.BASE_URL + "/users/auth/login", { 'email': "miller", "password": "Senhaaas" })
+    return this.httpClient.post<String>(this.constants.BASE_URL + "/users/auth/login", { 'email': email, "password": password })
   }
 
 }
