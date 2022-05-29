@@ -8,6 +8,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  email: string = "";
+  password: string = "";
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -15,7 +18,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.userService.login("email", "senha")
+
+    this.userService.login(this.email, this.password)
       .subscribe((it) => console.log(it));
 
   }
