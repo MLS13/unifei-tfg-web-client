@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    height: 100%;
+    /* width: 100%; */
+}
+
+.logo {
+    flex-grow: 5;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 400px;
+    padding: 32px;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-align: end;
+    text-decoration: none;
+}
+
+.forgotPassword{
+    width: min-content;
+}
+
+button {
+    margin-bottom: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
