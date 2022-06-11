@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AppComponent } from 'src/app/app.component';
 import { AppConstants } from 'src/app/constants/constants';
 import { UserService } from 'src/app/services/user.service';
 
@@ -18,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private router: Router, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
-
+    this.userService.deleteDataUser();
   }
 
   login(): void {
@@ -26,7 +25,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (it) => {
           if (it.message != null && it.token != null) {
-            this.userService.setData(this.email, it.token);
+            this.userService.setData(it.username, this.email, it.token);
             this.router.navigate([AppConstants.ROTAS.HOME]);
           } else if (it.message != null) {
             this.snackbar.open(it.message);
@@ -34,7 +33,9 @@ export class LoginComponent implements OnInit {
             this.snackbar.open("Ocorreu um erro inesperado!");
           }
         },
-        (error) => this.snackbar.open("Ocorreu um erro inesperado!", "", {duration: 3000}),
+        (it) => {
+          this.snackbar.open(it.error ?? "Ocorreu um erro inesperado", "", { duration: 3000 });
+        },
       );
   }
 

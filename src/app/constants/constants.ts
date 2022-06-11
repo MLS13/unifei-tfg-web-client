@@ -13,6 +13,7 @@ export class AppConstants {
     }
     
     public static LOCAL_STORAGE = class LocalStorage {
+        public static NAME = "name";
         public static EMAIL = "email";
         public static TOKEN = "token";
     }

@@ -1,0 +1,38 @@
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #696969;
+}
+
+.footer h4{
+    color: #FFFFFF;
+    
+}
+
+.sidenav {
+    background-color: #3c54b4;
+    width: 200px;
+}
+
+.sidenav a{
+    color: #FFF;
+    vertical-align: middle;
+}
+
+.sidenav mat-icon{
+    padding-right: 8px;
+}
+
+.content {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    background-color: #f1f1f1;
+}

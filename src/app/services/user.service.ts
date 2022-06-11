@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { AppConstants } from '../constants/constants';
+import { UserModel } from '../models/user-model';
+import { ResponseGeneric } from '../responses/response-generic';
 import { ResponseLogin } from '../responses/response-login';
 
 @Injectable({
@@ -10,6 +12,7 @@ import { ResponseLogin } from '../responses/response-login';
 })
 export class UserService {
 
+  name: string = "";
   email: string = "";
   token: string = "";
 
@@ -18,11 +21,13 @@ export class UserService {
   }
 
   private getDataLocalStorage() {
+    this.name = localStorage.getItem(AppConstants.LOCAL_STORAGE.NAME) ?? "";
     this.email = localStorage.getItem(AppConstants.LOCAL_STORAGE.EMAIL) ?? "";
     this.token = localStorage.getItem(AppConstants.LOCAL_STORAGE.TOKEN) ?? "";
   }
 
-  private setDataLocalStorage(email: string, token: string) {
+  private setDataLocalStorage(name: string, email: string, token: string) {
+    localStorage.setItem(AppConstants.LOCAL_STORAGE.NAME, name);
     localStorage.setItem(AppConstants.LOCAL_STORAGE.EMAIL, email);
     localStorage.setItem(AppConstants.LOCAL_STORAGE.TOKEN, token);
   }
@@ -31,21 +36,35 @@ export class UserService {
     return this.httpClient.post<ResponseLogin>(this.constants.BASE_URL + "/users/auth/login", { 'email': email, "password": password });
   }
 
-  setData(email: string, token: string){
+  setData(name: string, email: string, token: string) {
+    this.name = name;
     this.email = email;
     this.token = token;
-    this.setDataLocalStorage(email, token);
+    this.setDataLocalStorage(name, email, token);
   }
 
-  register(name: String, cellphone: String, email: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(this.constants.BASE_URL + "/users/create", { "name": name, "cellphone": cellphone, 'email': email, "password": password })
+  register(data: UserModel): Observable<ResponseGeneric> {
+    return this.httpClient.post<ResponseGeneric>(
+      this.constants.BASE_URL + "/users/create",
+      {
+        "name": data.name,
+        "cellphone": data.cellphone,
+        'email': data.email,
+        "password": data.password
+      }
+    );
   }
 
   logout() {
+    this.deleteDataUser();
+    this.router.navigate([AppConstants.ROTAS.AUTH]);
+  }
+  
+  deleteDataUser() {
     localStorage.clear();
+    this.name = "";
     this.email = "";
     this.token = "";
-    this.router.navigate([AppConstants.ROTAS.AUTH]);
   }
 
   isLogged(): boolean {
