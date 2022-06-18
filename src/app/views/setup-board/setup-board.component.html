@@ -1,0 +1,9 @@
+<h3>
+    <div class="content mat-elevation-z3">
+        Minhas Placas >>> {{ board?.device_nickname}} >>> {{deviceSetup?.NAME}}
+        <div *ngIf="isLoading">
+            <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
+        </div>
+    </div>
+</h3>
+<div class="padding"></div>

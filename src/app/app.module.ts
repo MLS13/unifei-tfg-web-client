@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { AccountRegisterComponent } from './views/account-register/account-register.component';
+import { MyBoardsComponent } from './views/my-boards/my-boards.component';
 import { DashboardComponent } from './templates/dashboard/dashboard.component';
+import { BoardComponent } from './views/board/board.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -24,7 +26,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MyBoardsComponent } from './views/my-boards/my-boards.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+import { SetupBoardComponent } from './views/setup-board/setup-board.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,8 @@ import { MyBoardsComponent } from './views/my-boards/my-boards.component';
     HomeComponent,
     DashboardComponent,
     MyBoardsComponent,
+    BoardComponent,
+    SetupBoardComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +61,9 @@ import { MyBoardsComponent } from './views/my-boards/my-boards.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    MatProgressBarModule,
+    MatGridListModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

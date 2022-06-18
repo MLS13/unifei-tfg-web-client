@@ -1,11 +1,15 @@
 .container {
     display: flex;
     height: 100%;
-    /* width: 100%; */
+    width: 100%;
 }
 
 .logo {
-    flex-grow: 5;
+    background-color: white;
+    background-image: url("/assets/background_authenticate.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 .formulario {
@@ -21,12 +25,12 @@
     flex-direction: column;
 }
 
-a{
+a {
     text-align: end;
     text-decoration: none;
 }
 
-.forgotPassword{
+.forgotPassword {
     width: min-content;
 }
 

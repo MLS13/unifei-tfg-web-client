@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AppConstants } from '../constants/constants';
 import { UserModel } from '../models/user-model';
 import { ResponseGeneric } from '../responses/response-generic';
@@ -16,7 +16,7 @@ export class UserService {
   email: string = "";
   token: string = "";
 
-  constructor(private constants: AppConstants, private httpClient: HttpClient, private router: Router) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.getDataLocalStorage();
   }
 
@@ -33,7 +33,7 @@ export class UserService {
   }
 
   login(email: string, password: string): Observable<ResponseLogin> {
-    return this.httpClient.post<ResponseLogin>(this.constants.BASE_URL + "/users/auth/login", { 'email': email, "password": password });
+    return this.httpClient.post<ResponseLogin>(AppConstants.BASE_URL + "/users/auth/login", { 'email': email, "password": password });
   }
 
   setData(name: string, email: string, token: string) {
@@ -45,7 +45,7 @@ export class UserService {
 
   register(data: UserModel): Observable<ResponseGeneric> {
     return this.httpClient.post<ResponseGeneric>(
-      this.constants.BASE_URL + "/users/create",
+      AppConstants.BASE_URL + "/users/create",
       {
         "name": data.name,
         "cellphone": data.cellphone,
@@ -59,7 +59,7 @@ export class UserService {
     this.deleteDataUser();
     this.router.navigate([AppConstants.ROTAS.AUTH]);
   }
-  
+
   deleteDataUser() {
     localStorage.clear();
     this.name = "";

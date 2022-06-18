@@ -1,1 +1,29 @@
-<p>my-boards works!</p>
+<div class="content mat-elevation-z3">
+    <div class="row">
+        <h3 style="flex-grow: 1">
+            Minhas Placas
+        </h3>
+        <button mat-raised-button (click)="addBoard()" color="primary">
+            ADICIONAR PLACA
+        </button>
+    </div>
+    <div *ngIf="isLoading">
+        <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
+    </div>
+</div>
+
+<div class="padding"></div>
+
+<div class="container-setups">
+    <div class="setup mat-elevation-z2" *ngFor="let board of listBoards" (click)="toPageBoard(board)">
+        <img src="assets/arduino.png" height="80px" />
+        <h2>
+            {{board.device_nickname}}
+            <mat-divider></mat-divider>
+        </h2>
+        <h4>
+            Tipo: {{board.device_type}} <br>
+            Qtd. setups: {{board.device_setup.length}}
+        </h4>
+    </div>
+</div>

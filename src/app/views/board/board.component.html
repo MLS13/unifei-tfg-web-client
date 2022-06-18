@@ -1,0 +1,54 @@
+<div class="content mat-elevation-z3">
+    <h3>
+        Minhas Placas >>> {{board?.device_nickname}}
+    </h3>
+    <div *ngIf="isLoading">
+        <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
+    </div>
+</div>
+<div class="padding"></div>
+<!-- Change Name board -->
+<div *ngIf="!isLoading" class="content mat-elevation-z3">
+    <div class="row">
+        <mat-form-field style="flex-grow: 1">
+            <input matInput placeholder="Nome da placa" [(ngModel)]="deviceNickName" name="deviceNickName"
+                [disabled]="disableDeviceNickName">
+        </mat-form-field>
+        <div class="padding"></div>
+        <button *ngIf="!disableDeviceNickName" mat-icon-button color="#FF0000" (click)="cancelChangeDeviceNickName()">
+            <mat-icon>cancel</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="changeDeviceNickName()">
+            <mat-icon *ngIf="disableDeviceNickName">edit</mat-icon>
+            <mat-icon *ngIf="!disableDeviceNickName">save</mat-icon>
+        </button>
+    </div>
+    <div class="row">
+        <mat-form-field style="flex-grow: 1">
+            <input matInput placeholder="Tipo" [(ngModel)]="board!.device_type" name="deviceType"
+                [disabled]="true">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field style="flex-grow: 1">
+            <input matInput placeholder="Tipo" [(ngModel)]="board!.license_key" name="license_key"
+                [disabled]="true">
+        </mat-form-field>
+    </div>
+</div>
+<div class="padding"></div>
+<!-- List setups board -->
+<div class="container-setups">
+    <div class="setup mat-elevation-z2" *ngFor="let setup of board?.device_setup" (click)="toPageBoard(setup._id)">
+        <h2>
+            {{setup.NAME}}
+            <mat-divider></mat-divider>
+        </h2>
+        <h4>
+            Tipo: {{setup.IO_TYPE}} <br>
+            Pino: {{setup.PIN}} <br>
+            Dispositivo: {{setup.CODE}} <br>
+            Valor: {{setup.VALUE}}
+        </h4>
+    </div>
+</div>
