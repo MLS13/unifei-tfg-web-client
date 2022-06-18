@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { disconnect } from 'process';
 import { interval, Subscription, timer } from 'rxjs';
 import { AppConstants } from 'src/app/constants/constants';
 import { BoardModel } from 'src/app/models/board-model';
@@ -28,20 +29,20 @@ export class BoardComponent implements OnInit {
       timer(500).subscribe(
         (_) => {
           this.getBoard();
-          this.conectServer();
+          this.connectServer();
         });
     });
   }
 
   ngOnDestroy(): void{
-    this.desconetServer();
+    this.disconnectServer();
   }
 
-  conectServer() {
+  connectServer() {
     this.timerConnectServer = interval(1000).subscribe((_) => this.getBoard());
   }
 
-  desconetServer(){
+  disconnectServer(){
     this.timerConnectServer?.unsubscribe();
     this.timerConnectServer = undefined;
   }
@@ -63,6 +64,7 @@ export class BoardComponent implements OnInit {
   changeDeviceNickName(): void {
     if (this.disableDeviceNickName) {
       this.disableDeviceNickName = false;
+      this.disconnectServer();
     } else {
 
     }
@@ -71,6 +73,7 @@ export class BoardComponent implements OnInit {
   cancelChangeDeviceNickName(): void {
     this.disableDeviceNickName = true;
     this.deviceNickName = this.board?.device_nickname ?? "";
+    this.connectServer();
   }
 
   toPageBoard(idSetupBoard: string) {

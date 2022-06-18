@@ -1,12 +1,17 @@
-<div class="content mat-elevation-z3">
-    <h3>
-        Minhas Placas >>> {{board?.device_nickname}}
-    </h3>
-    <div *ngIf="isLoading">
-        <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
+<h3>
+    <div class="content mat-elevation-z3">
+        <div class="row">
+            <div style="flex-grow: 1">
+                Minhas Placas >>> {{board?.device_nickname}}
+            </div>
+            <mat-icon *ngIf="!isLoading && timerConnectServer != null" [ngStyle]="{color: 'green'}">sensors</mat-icon>
+            <mat-icon *ngIf="!isLoading && timerConnectServer == null" [ngStyle]="{color: 'red'}">sensors_off</mat-icon>
+        </div>
+        <div *ngIf="isLoading">
+            <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
+        </div>
     </div>
-</div>
-<div class="padding"></div>
+</h3>
 <!-- Change Name board -->
 <div *ngIf="!isLoading" class="content mat-elevation-z3">
     <div class="row">
@@ -25,14 +30,12 @@
     </div>
     <div class="row">
         <mat-form-field style="flex-grow: 1">
-            <input matInput placeholder="Tipo" [(ngModel)]="board!.device_type" name="deviceType"
-                [disabled]="true">
+            <input matInput placeholder="Tipo" [(ngModel)]="board!.device_type" name="deviceType" [disabled]="true">
         </mat-form-field>
     </div>
     <div class="row">
         <mat-form-field style="flex-grow: 1">
-            <input matInput placeholder="Tipo" [(ngModel)]="board!.license_key" name="license_key"
-                [disabled]="true">
+            <input matInput placeholder="Tipo" [(ngModel)]="board!.license_key" name="license_key" [disabled]="true">
         </mat-form-field>
     </div>
 </div>

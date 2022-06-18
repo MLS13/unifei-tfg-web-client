@@ -1,18 +1,18 @@
-<div class="content mat-elevation-z3">
-    <div class="row">
-        <h3 style="flex-grow: 1">
-            Minhas Placas
-        </h3>
-        <button mat-raised-button (click)="addBoard()" color="primary">
-            ADICIONAR PLACA
-        </button>
+<h3>
+    <div class="content mat-elevation-z3">
+        <div class="row">
+            <div style="flex-grow: 1">
+                Minhas Placas
+            </div>
+            <button mat-raised-button (click)="addBoard()" color="primary">
+                ADICIONAR PLACA
+            </button>
+        </div>
+        <div *ngIf="isLoading">
+            <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
+        </div>
     </div>
-    <div *ngIf="isLoading">
-        <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
-    </div>
-</div>
-
-<div class="padding"></div>
+</h3>
 
 <div class="container-setups">
     <div class="setup mat-elevation-z2" *ngFor="let board of listBoards" (click)="toPageBoard(board)">
