@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { disconnect } from 'process';
 import { interval, Subscription, timer } from 'rxjs';
 import { AppConstants } from 'src/app/constants/constants';
 import { BoardModel } from 'src/app/models/board-model';
