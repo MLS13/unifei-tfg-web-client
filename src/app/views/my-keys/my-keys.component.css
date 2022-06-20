@@ -1,0 +1,29 @@
+.content {
+    background-color: #FFFFFF;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.padding {
+    padding: 8px;
+}
+
+.table{
+    width: 100%;
+    border-radius: 4px;
+}
+
+.keys-empty{
+    background-color: #FFFFFF;
+    vertical-align: center;
+    align-items: center;
+}
+
+.row{
+    padding-top: 32px;
+    padding-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+}
