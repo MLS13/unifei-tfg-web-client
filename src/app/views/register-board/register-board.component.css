@@ -1,0 +1,17 @@
+.content {
+    background-color: #FFFFFF;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.formulario {
+    background-color: #FFFFFF;
+    padding: 12px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.padding {
+    padding: 8px;
+}

@@ -1,0 +1,48 @@
+<h3>
+    <div class="content mat-elevation-z3">
+        <div style="flex-grow: 1">
+            Registrar placa
+        </div>
+        <div *ngIf="isLoading">
+            <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
+        </div>
+    </div>
+</h3>
+
+<div class="content mat-elevation-z3">
+    <form [formGroup]="form" validate class="formulario">
+        <mat-form-field>
+            <input matInput placeholder="Nome" formControlName="device_nickname">
+            <mat-error *ngIf="form.get('device_nickname')?.hasError('required') && form.get('device_nickname')?.touched">
+                Campo obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select formControlName="device_type">
+                <mat-option *ngFor="let optDeviceType of listOptionsDeviceType" value="{{optDeviceType}}">
+                    {{optDeviceType}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('device_type')?.hasError('required') && form.get('device_type')?.touched">
+                Campo obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Chave" formControlName="license_key">
+                <mat-option *ngFor="let optLicenseKey of listOptionsLicenseKey" value="{{optLicenseKey}}">
+                    {{optLicenseKey}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('license_key')?.hasError('required') && form.get('license_key')?.touched">
+                Campo obrigatório
+            </mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
+<div class="padding"></div>
+
+<button *ngIf="!isLoading" mat-raised-button (click)="registerBoard()" color="primary">
+    REGISTRAR PLACA
+</button>
