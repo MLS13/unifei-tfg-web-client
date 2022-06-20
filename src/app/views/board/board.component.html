@@ -1,6 +1,10 @@
 <h3>
     <div class="content mat-elevation-z3">
         <div class="row">
+            <button mat-icon-button aria-label="Retornar página" (click)="returnPage()">
+                <mat-icon color="primary">arrow_back</mat-icon>
+            </button>
+            <div class="padding-4"></div>
             <div style="flex-grow: 1">
                 Minhas Placas >>> {{board?.device_nickname}}
             </div>

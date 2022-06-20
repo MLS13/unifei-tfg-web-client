@@ -15,6 +15,9 @@ import { AccountRegisterComponent } from './views/account-register/account-regis
 import { MyBoardsComponent } from './views/my-boards/my-boards.component';
 import { DashboardComponent } from './templates/dashboard/dashboard.component';
 import { BoardComponent } from './views/board/board.component';
+import { SetupBoardComponent } from './views/setup-board/setup-board.component';
+import { MyKeysComponent } from './views/my-keys/my-keys.component';
+import { RegisterBoardComponent } from './views/register-board/register-board.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -29,7 +32,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
-import { SetupBoardComponent } from './views/setup-board/setup-board.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,8 @@ import { SetupBoardComponent } from './views/setup-board/setup-board.component';
     MyBoardsComponent,
     BoardComponent,
     SetupBoardComponent,
+    MyKeysComponent,
+    RegisterBoardComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +70,8 @@ import { SetupBoardComponent } from './views/setup-board/setup-board.component';
     MatProgressBarModule,
     MatGridListModule,
     MatDividerModule,
+    MatTableModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

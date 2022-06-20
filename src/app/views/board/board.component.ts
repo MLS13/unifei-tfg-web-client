@@ -33,7 +33,7 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.disconnectServer();
   }
 
@@ -41,7 +41,7 @@ export class BoardComponent implements OnInit {
     this.timerConnectServer = interval(1000).subscribe((_) => this.getBoard());
   }
 
-  disconnectServer(){
+  disconnectServer() {
     this.timerConnectServer?.unsubscribe();
     this.timerConnectServer = undefined;
   }
@@ -77,6 +77,10 @@ export class BoardComponent implements OnInit {
 
   toPageBoard(idSetupBoard: string) {
     this.router.navigate([AppConstants.ROTAS.BOARD, this.idBoard, idSetupBoard]);
+  }
+
+  returnPage(): void {
+    history.back();
   }
 
 }

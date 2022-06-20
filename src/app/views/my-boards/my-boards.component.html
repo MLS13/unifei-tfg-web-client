@@ -1,12 +1,7 @@
 <h3>
     <div class="content mat-elevation-z3">
-        <div class="row">
-            <div style="flex-grow: 1">
-                Minhas Placas
-            </div>
-            <button mat-raised-button (click)="addBoard()" color="primary">
-                ADICIONAR PLACA
-            </button>
+        <div style="flex-grow: 1">
+            Minhas Placas
         </div>
         <div *ngIf="isLoading">
             <mat-progress-bar mode="query" id="progress"></mat-progress-bar>

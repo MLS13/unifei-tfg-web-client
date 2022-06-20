@@ -14,9 +14,21 @@
             </a>
         </mat-nav-list>
         <mat-nav-list>
+            <a mat-list-item (click)="navMyKeys()">
+                <mat-icon>key</mat-icon>
+                Minhas chaves
+            </a>
+        </mat-nav-list>
+        <mat-nav-list>
             <a mat-list-item (click)="navMyBoards()">
                 <mat-icon>dataset</mat-icon>
                 Minhas placas
+            </a>
+        </mat-nav-list>
+        <mat-nav-list>
+            <a mat-list-item (click)="navRegisterBoard()">
+                <mat-icon>add_box</mat-icon>
+                Registrar placa
             </a>
         </mat-nav-list>
         <mat-nav-list (click)="logout()">

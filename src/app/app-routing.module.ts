@@ -8,6 +8,8 @@ import { BoardComponent } from './views/board/board.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { MyBoardsComponent } from './views/my-boards/my-boards.component';
+import { MyKeysComponent } from './views/my-keys/my-keys.component';
+import { RegisterBoardComponent } from './views/register-board/register-board.component';
 import { SetupBoardComponent } from './views/setup-board/setup-board.component';
 
 const routes: Routes = [
@@ -20,6 +22,24 @@ const routes: Routes = [
     children: [{
       path: "",
       component: HomeComponent,
+    }]
+  },
+  {
+    path: AppConstants.ROTAS.MY_KEYS,
+    component: DashboardComponent,
+    canActivate: [UserGuardService],
+    children: [{
+      path: "",
+      component: MyKeysComponent,
+    }]
+  },
+  {
+    path: AppConstants.ROTAS.REGISTER_BOARD,
+    component: DashboardComponent,
+    canActivate: [UserGuardService],
+    children: [{
+      path: "",
+      component: RegisterBoardComponent,
     }]
   },
   {

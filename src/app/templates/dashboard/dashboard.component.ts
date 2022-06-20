@@ -18,15 +18,24 @@ export class DashboardComponent implements OnInit {
     this.nameUser = this.userService.name;
   }
 
-  logout():void{
+  logout(): void {
     this.userService.logout();
   }
 
-  navHome():void{
+  navHome(): void {
     this.router.navigate([AppConstants.ROTAS.HOME]);
   }
-  navMyBoards():void{
+
+  navMyKeys(): void {
+    this.router.navigate([AppConstants.ROTAS.MY_KEYS]);
+  }
+
+  navMyBoards(): void {
     this.router.navigate([AppConstants.ROTAS.MY_BOARDS]);
+  }
+  
+  navRegisterBoard(): void{
+    this.router.navigate([AppConstants.ROTAS.REGISTER_BOARD]);
   }
 
 }
