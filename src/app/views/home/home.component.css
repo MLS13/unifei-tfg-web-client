@@ -1,3 +1,24 @@
 .home{
     background-color: #FFFF;
 }
+
+.title{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    font-family: Raleway;
+    font-size: 32px;
+}
+.subtitle{
+    font-family: Raleway;
+    font-size: 22px;
+}
+
+h2{
+    font-family: "Squada One";
+    font-size: 38px;
+}
+
+.spacer{
+    width: 12px;
+}

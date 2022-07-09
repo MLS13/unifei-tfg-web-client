@@ -1,6 +1,10 @@
 .toolbar {
     display: flex;
     justify-content: space-between;
+    background-color: #00FFFF;
+    height: 80px;
+    font-family: "Squada One";
+    font-size: 24px;
 }
 
 .footer {
@@ -17,20 +21,22 @@
 }
 
 .sidenav {
-    background-color: #3c54b4;
+    background: linear-gradient(0deg, #00FFFF 0.07%, #ACFFFF 53.28%, #F8FFFF 103.9%, #FFFFFF 103.91%);
     width: 200px;
 }
 
 .sidenav a{
-    color: #FFF;
+    color: #000000;
     vertical-align: middle;
+    font-family: Raleway;
+    font-weight: 500;
 }
 
 .sidenav mat-icon{
     padding-right: 8px;
 }
 
-.content {
+.sidenav-content {
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 16px;

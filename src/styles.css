@@ -51,3 +51,25 @@ body {
     font-size: 16px;
     
 }
+
+.header-page{
+    height: 120px;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(90.55deg, #00FFFF 0.07%, #ACFFFF 53.28%, #F8FFFF 103.9%, #FFFFFF 103.91%);
+}
+
+.header-page-title{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Squada One";
+    font-size: 40px;
+    font-weight: 700;
+}
+
