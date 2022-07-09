@@ -1,20 +1,23 @@
 <div class="container">
-    <div class="logo" style="flex-grow: 1">
-    </div>
+    <div class="logo" style="flex-grow: 1"></div>
 
     <div class="formulario">
-        <h1>
-            Seja bem-vindo ao SIGIOT
-        </h1>
+        <div class="title">
+            <p class="raleway">
+                Seja bem-vindo ao
+            </p>
+            <p class="squada-one">
+                SIGIoT
+            </p>
+        </div>
         <form [formGroup]="form" novalidate>
-            <h2>Cadastro</h2>
-            <mat-form-field>
+            <mat-form-field class="input-auth">
                 <input matInput placeholder="Nome" formControlName="name">
                 <mat-error *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">
                     Campo obrigatório
                 </mat-error>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="input-auth">
                 <input matInput type="tel" placeholder="Telefone" formControlName="cellphone">
                 <mat-error *ngIf="form.get('cellphone')?.hasError('minlength') && form.get('cellphone')?.touched">
                     Telefone inválido
@@ -23,7 +26,7 @@
                     Campo obrigatório
                 </mat-error>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="input-auth">
                 <input matInput type="email" placeholder="E-mail" formControlName="email">
                 <mat-error *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">
                     E-mail inválido
@@ -32,7 +35,7 @@
                     Campo obrigatório
                 </mat-error>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="input-auth">
                 <input matInput type="password" placeholder="Senha" formControlName="password">
                 <mat-error *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.touched">
                     Sua senha deve conter no mínimo 8 caracteres
@@ -41,7 +44,7 @@
                     Campo obrigatório
                 </mat-error>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="input-auth">
                 <input matInput type="password" placeholder="Confirmar senha" formControlName="confirmPassword">
                 <mat-error
                     *ngIf="form.get('confirmPassword')?.hasError('minlength') && form.get('confirmPassword')?.touched">
@@ -52,10 +55,11 @@
                     Campo obrigatório
                 </mat-error>
             </mat-form-field>
+            <div class="inputs-obg">Campos obrigatórios *</div>
         </form>
         <div class="botoes">
-            <button mat-raised-button (click)="register()" color="primary">
-                CADASTRE-SE
+            <button mat-raised-button (click)="register()" class="botao">
+                Cadastre-se
             </button>
         </div>
     </div>

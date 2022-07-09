@@ -1,29 +1,33 @@
-<div class="container">
-    <!-- <div class="logo mat-app-background" style="flex-grow: 1"> -->
-    <div class="logo" style="flex-grow: 1">
-        <!-- <img src="assets/background_authenticate.png"> -->
-    </div>
+<body>
+    <div class="container">
+        <div class="logo" style="flex-grow: 1">        </div>
 
-    <div class="formulario">
-        <h1>
-            Seja bem-vindo ao SIGIOT
-        </h1>
-        <form>
-            <mat-form-field>
-                <input matInput placeholder="E-mail" [(ngModel)]="email" name="email">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Senha" [(ngModel)]="password" name="password" type="password">
-            </mat-form-field>
-            <a href="">Esqueceu sua senha?</a>
-        </form>
-        <div class="botoes">
-            <button mat-raised-button (click)="login()" color="primary">
-                ENTRAR
-            </button>
-            <button mat-button (click)="register()" color="primary">
-                CADASTRE-SE
-            </button>
+        <div class="formulario">
+            <div class="title">
+                <p class="raleway">
+                    Seja bem-vindo ao
+                </p>
+                <p class="squada-one">
+                    SIGIoT
+                </p>
+            </div>
+            <form>
+                <mat-form-field class="input-auth">
+                    <input matInput placeholder="E-mail" [(ngModel)]="email" name="email">
+                </mat-form-field>
+                <mat-form-field class="input-auth">
+                    <input matInput placeholder="Senha" [(ngModel)]="password" name="password" type="password">
+                </mat-form-field>
+                <a href="" class="link">Esqueceu sua senha?</a>
+            </form>
+            <div class="botoes">
+                <button mat-raised-button (click)="login()" class="botao">
+                    Entrar
+                </button>
+                <button mat-button (click)="register()" class="button-white">
+                    Cadastre-se
+                </button>
+            </div>
         </div>
     </div>
-</div>
+</body>

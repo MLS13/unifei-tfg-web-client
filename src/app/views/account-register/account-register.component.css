@@ -1,18 +1,24 @@
 .container {
     display: flex;
     height: 100%;
-    /* width: 100%; */
+    width: 100%;
+    background-color: #000000;
 }
 
 .logo {
-    background-color: white;
-    background-image: url("/assets/background_authenticate.png");
+    background-image: url("/assets/logo_sigiot.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    margin: 32px;
+}
+
+.title{
+    text-align: center;
 }
 
 .formulario {
+    background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -30,8 +36,10 @@ a {
     text-decoration: none;
 }
 
-.forgotPassword {
-    width: min-content;
+.inputs-obg {
+    text-align: end;
+    font-family: Raleway;
+    font-size: 16px;
 }
 
 button {

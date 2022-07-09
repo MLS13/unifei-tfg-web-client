@@ -7,6 +7,47 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Raleway, "Helvetica Neue", sans-serif;
     background-color: #f1f1f1;
+}
+
+.raleway{
+    font-family: Raleway;
+    font-size: 20px;
+}
+
+.squada-one{
+    font-family: "Squada One";
+    font-size: 48px;
+}
+
+.squada-one-25{
+    font-family: "Squada One";
+    font-size: 25px;
+}
+
+.botao{
+    font-family: "Squada One";
+    font-size: 32px;
+    color: #00FFFF;
+    background-color: black;
+    height: 55px;
+}
+
+.button-white{
+    font-family: Raleway;
+    font-size: 18px;
+    color: #000000;
+}
+
+.link{
+    font-family: Raleway;
+    font-size: 16px;
+    color: #000000;
+}
+
+.input-auth{
+    font-family: Raleway;
+    font-size: 16px;
+    
 }
