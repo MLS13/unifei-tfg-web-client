@@ -9,6 +9,10 @@ body {
     margin: 0;
     font-family: Raleway, "Helvetica Neue", sans-serif;
     background-color: #f1f1f1;
+    /* background-image: url("/assets/background_dashboard.svg");
+    background-repeat: no-repeat;
+    background-size: 350px;
+    background-position: center; */
 }
 
 .raleway{
@@ -72,4 +76,18 @@ body {
     font-size: 40px;
     font-weight: 700;
 }
+
+.input-text{
+    border-radius: 5px;
+}
+
+.input-text-label{
+    background-color: #000000;
+    border-radius: 5px;
+    color: #00FFFF;
+    font-family: "Squada One";
+    font-size: 22px;
+    padding: 8px;
+}
+
 

@@ -1,25 +1,25 @@
 <h3>
-    <div class="content mat-elevation-z3">
-        <div style="flex-grow: 1">
+    <div class="header-page mat-elevation-z3">
+        <div class="header-page-title">
             Registrar placa
         </div>
-        <div *ngIf="isLoading">
-            <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
-        </div>
+        <mat-progress-bar *ngIf="isLoading" mode="query" id="progress"></mat-progress-bar>
     </div>
 </h3>
 
 <div class="content mat-elevation-z3">
-    <form [formGroup]="form" novalidate class="formulario" >
-        <mat-form-field>
-            <input matInput placeholder="Nome" formControlName="device_nickname">
-            <mat-error *ngIf="form.get('device_nickname')?.hasError('required') && form.get('device_nickname')?.touched">
+    <form [formGroup]="form" novalidate class="formulario">
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="true">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Insira o nome da placa" formControlName="device_nickname">
+            <mat-error
+                *ngIf="form.get('device_nickname')?.hasError('required') && form.get('device_nickname')?.touched">
                 Campo obrigatório
             </mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="true">
             <mat-label>Tipo</mat-label>
-            <mat-select formControlName="device_type">
+            <mat-select placeholder="Insira o tipo da placa" formControlName="device_type">
                 <mat-option *ngFor="let optDeviceType of listOptionsDeviceType" value="{{optDeviceType}}">
                     {{optDeviceType}}
                 </mat-option>
@@ -28,8 +28,9 @@
                 Campo obrigatório
             </mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <mat-select placeholder="Chave" formControlName="license_key">
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="true">
+            <mat-label>Chave</mat-label>
+            <mat-select placeholder="Insira a chave da placa" formControlName="license_key">
                 <mat-option *ngFor="let optLicenseKey of listOptionsLicenseKey" value="{{optLicenseKey}}">
                     {{optLicenseKey}}
                 </mat-option>
@@ -43,6 +44,6 @@
 
 <div class="padding"></div>
 
-<button *ngIf="!isLoading" mat-raised-button (click)="registerBoard()" color="primary">
-    REGISTRAR PLACA
+<button *ngIf="!isLoading" mat-raised-button (click)="registerBoard()" class="botao">
+    Registrar placa
 </button>
