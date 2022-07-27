@@ -7,11 +7,11 @@ export interface BoardModel {
 }
 
 export interface SetupModel {
-    IO_TYPE: string,
-    PIN: number,
-    CODE: string,
-    VALUE: number,
+    TYPE?: string,
+    PIN?: number,
+    CODE?: string,
+    VALUE?: number | Boolean,
     VALUE_TYPE: string,
-    NAME: string,
+    NAME?: string,
     _id: string
 }

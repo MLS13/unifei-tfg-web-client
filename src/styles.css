@@ -77,6 +77,11 @@ body {
     font-weight: 700;
 }
 
+.divider-title{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 .input-text{
     border-radius: 5px;
 }
@@ -88,6 +93,12 @@ body {
     font-family: "Squada One";
     font-size: 22px;
     padding: 8px;
+}
+
+.body-title{
+    font-family: Raleway;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 

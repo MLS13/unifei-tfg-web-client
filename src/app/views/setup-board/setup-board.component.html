@@ -1,9 +1,69 @@
-<h3>
-    <div class="content mat-elevation-z3">
-        Minhas Placas >>> {{ board?.device_nickname}} >>> {{deviceSetup?.NAME}}
-        <div *ngIf="isLoading">
-            <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
-        </div>
+<div class="header-page mat-elevation-z3">
+    <div class="header-page-title">
+        Minhas Placas
+        <img class="divider-title" src="/assets/divider.png">
+        {{(board?.device_nickname != "") ? board?.device_nickname : "-----"}}
+        <img class="divider-title" src="/assets/divider.png">
+        {{(deviceSetup?.NAME != "") ? deviceSetup?.NAME : "-----"}}
     </div>
-</h3>
+    <mat-progress-bar *ngIf="isLoading" mode="query" id="progress"></mat-progress-bar>
+</div>
+
 <div class="padding"></div>
+
+<div *ngIf="!isLoading" class="content mat-elevation-z3">
+    <form [formGroup]="form" novalidate class="formulario">
+        <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Insira o nome do setup" formControlName="setup_name">
+            <mat-error *ngIf="form.get('setup_name')?.hasError('required') && form.get('setup_name')?.touched">
+                Campo obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Pino</mat-label>
+            <input matInput placeholder="Pino" formControlName="pin">
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="true">
+            <mat-label>Tipo de setup</mat-label>
+            <mat-select placeholder="Tipo de setup" formControlName="code">
+                <mat-option *ngFor="let optCode of listOptionsCode" value="{{optCode}}">
+                    {{optCode}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('code')?.hasError('required') && form.get('code')?.touched">
+                Campo obrigatório
+            </mat-error>
+        </mat-form-field>
+
+        <mat-divider></mat-divider>
+        <div class="padding"></div>
+
+        <p class='body-title'>
+            {{ deviceSetup?.TYPE == "OUTPUT" ? "Dispositivo de saída de dados" : "Dispositivo de entrada de dados" }}
+        </p>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Tipo de dado</mat-label>
+            <input matInput placeholder="Tipo de dado" formControlName="value_type">
+        </mat-form-field>
+
+        <mat-slide-toggle *ngIf="deviceSetup?.VALUE_TYPE == 'BOOL'" color="primary" [checked]="inputBooleanChecked"
+            id="input-boolean">
+        </mat-slide-toggle>
+
+        <mat-form-field *ngIf="deviceSetup?.VALUE_TYPE != 'BOOL'" appearance="outline" floatLabel="always">
+            <mat-label>Valor</mat-label>
+            <input matInput placeholder="Insira o nome do setup" formControlName="value">
+            <mat-error *ngIf="form.get('value')?.hasError('required') && form.get('value')?.touched">
+                Campo obrigatório
+            </mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
+<div class="padding"></div>
+
+<button *ngIf="!isLoading" mat-raised-button (click)="save()" class="botao">
+    Salvar Alterações
+</button>

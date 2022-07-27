@@ -4,36 +4,14 @@
     border-radius: 4px;
 }
 
-.body-grid {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-}
-
 .padding {
     padding: 8px;
 }
 
-.row {
-    display: flex;
-    align-items: center;
-}
-
-.container-setups {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-.setup {
+.formulario {
     background-color: #FFFFFF;
-    padding: 16px;
-    margin-right: 16px;
-    margin-bottom: 16px;
-    width: 250px;
-    height: 180px;
+    padding: 12px 12px 0px 12px; 
     border-radius: 4px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
 }

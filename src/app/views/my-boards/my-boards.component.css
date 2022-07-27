@@ -20,6 +20,7 @@
 }
 
 .container-setups {
+    padding-top: 16px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -27,13 +28,50 @@
 
 .setup {
     background-color: #FFFFFF;
-    padding: 16px;
     margin-right: 16px;
     margin-bottom: 16px;
-    width: 250px;
-    height: 180px;
+    width: 350px;
+    height: 250px;
     border-radius: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.setup-title {
+    background-color: #000000;
+    color: #00FFFF;
+    padding: 16px;
+    align-items: center;
+    text-align: center;
+    font-family: "Squada One";
+    font-size: 30px;
+}
+
+.setup-content {
+    display: flex;
+    justify-items: center;
+    height: 200px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.setup-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    width: 175px;
+}
+
+.setup-description {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(221.23deg, #00FFFF -154.19%, rgba(0, 255, 255, 0) 115.19%);
+    font-family: Raleway;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    flex-grow: 1;
+    height: 200px;
 }

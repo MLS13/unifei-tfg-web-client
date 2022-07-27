@@ -31,13 +31,33 @@
 
 .setup {
     background-color: #FFFFFF;
-    padding: 16px;
     margin-right: 16px;
     margin-bottom: 16px;
-    width: 250px;
-    height: 180px;
+    width: 350px;
+    /* height: 250px; */
     border-radius: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.setup-title {
+    background-color: #000000;
+    color: #00FFFF;
+    padding: 16px;
+    align-items: center;
+    text-align: center;
+    font-family: "Squada One";
+    font-size: 30px;
+}
+
+.setup-content {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 16px;
+    font-family: Raleway;
+    font-size: 18px;
+    font-weight: 500;
 }

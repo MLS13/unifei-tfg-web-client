@@ -1,4 +1,13 @@
-<h3>
+<div class="header-page mat-elevation-z3">
+    <div class="header-page-title">
+        Minhas Placas
+        <img class="divider-title" src="/assets/divider.png">
+        {{board?.device_nickname}}
+    </div>
+    <mat-progress-bar *ngIf="isLoading" mode="query" id="progress"></mat-progress-bar>
+</div>
+
+<!-- <h3>
     <div class="content mat-elevation-z3">
         <div class="row">
             <button mat-icon-button aria-label="Retornar página" (click)="returnPage()">
@@ -14,13 +23,16 @@
         <div *ngIf="isLoading">
             <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
         </div>
-    </div>
+    </div> 
 </h3>
+-->
 <!-- Change Name board -->
+<div class="padding"></div>
 <div *ngIf="!isLoading" class="content mat-elevation-z3">
     <div class="row">
-        <mat-form-field style="flex-grow: 1">
-            <input matInput placeholder="Nome da placa" [(ngModel)]="deviceNickName" name="deviceNickName"
+        <mat-form-field style="flex-grow: 1" appearance="outline" floatLabel="always" hideRequiredMarker="true">
+            <mat-label>Nome da Placa</mat-label>
+            <input matInput placeholder="Nome da Placa" [(ngModel)]="deviceNickName" name="deviceNickName"
                 [disabled]="disableDeviceNickName">
         </mat-form-field>
         <div class="padding"></div>
@@ -33,29 +45,44 @@
         </button>
     </div>
     <div class="row">
-        <mat-form-field style="flex-grow: 1">
+        <mat-form-field style="flex-grow: 1" appearance="outline" floatLabel="always" hideRequiredMarker="true">
+            <mat-label>Tipo</mat-label>
             <input matInput placeholder="Tipo" [(ngModel)]="board!.device_type" name="deviceType" [disabled]="true">
         </mat-form-field>
     </div>
     <div class="row">
-        <mat-form-field style="flex-grow: 1">
-            <input matInput placeholder="Tipo" [(ngModel)]="board!.license_key" name="license_key" [disabled]="true">
+        <mat-form-field style="flex-grow: 1" appearance="outline" floatLabel="always" hideRequiredMarker="true">
+            <mat-label>Chave</mat-label>
+            <input matInput placeholder="Chave" [(ngModel)]="board!.license_key" name="license_key" [disabled]="true">
         </mat-form-field>
     </div>
 </div>
 <div class="padding"></div>
 <!-- List setups board -->
 <div class="container-setups">
-    <div class="setup mat-elevation-z2" *ngFor="let setup of board?.device_setup" (click)="toPageBoard(setup._id)">
-        <h2>
-            {{setup.NAME}}
+    <div class="setup mat-elevation-z3" *ngFor="let setup of board?.device_setup" (click)="toPageBoard(setup._id)">
+        <div *ngIf="setup.NAME != ''" class="setup-title">
+            {{setup.NAME ?? "-----"}}
+        </div>
+        <div *ngIf="setup.NAME == ''" class="setup-title">
+            -----
+        </div>
+        <div class="setup-content">
+            <div>
+                Tipo: {{setup.TYPE ?? "Indisponível"}}
+            </div>
             <mat-divider></mat-divider>
-        </h2>
-        <h4>
-            Tipo: {{setup.IO_TYPE}} <br>
-            Pino: {{setup.PIN}} <br>
-            Dispositivo: {{setup.CODE}} <br>
-            Valor: {{setup.VALUE}}
-        </h4>
+            <div>
+                Pino: {{setup.PIN ?? "Indisponível"}}
+            </div>
+            <mat-divider></mat-divider>
+            <div>
+                Dispositivo: {{setup.CODE ?? "Indisponível"}}
+            </div>
+            <mat-divider></mat-divider>
+            <div>
+                Valor: {{setup.VALUE ?? "Indisponível"}}
+            </div>
+        </div>
     </div>
 </div>

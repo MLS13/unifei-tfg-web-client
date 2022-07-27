@@ -1,17 +1,26 @@
-<h3>
-    <div class="content mat-elevation-z3">
-        <div style="flex-grow: 1">
-            Minhas Placas
-        </div>
-        <div *ngIf="isLoading">
-            <mat-progress-bar mode="query" id="progress"></mat-progress-bar>
-        </div>
+<div class="header-page mat-elevation-z3">
+    <div class="header-page-title">
+        Minhas Placas
     </div>
-</h3>
+    <mat-progress-bar *ngIf="isLoading" mode="query" id="progress"></mat-progress-bar>
+</div>
 
 <div class="container-setups">
-    <div class="setup mat-elevation-z2" *ngFor="let board of listBoards" (click)="toPageBoard(board)">
-        <img src="assets/arduino.png" height="80px" />
+    <div class="setup mat-elevation-z3" *ngFor="let board of listBoards" (click)="toPageBoard(board)">
+        <div class="setup-title">
+            {{board.device_nickname}}
+        </div>
+        <div class="setup-content">
+            <div class="setup-img">
+                <img src="assets/arduino.png" height="80px" />
+            </div>
+            <div class="setup-description">
+                Tipo: {{board.device_type}} <br>
+                Qtd. setups: {{board.device_setup.length}}
+            </div>
+        </div>
+
+        <!-- <img src="assets/arduino.png" height="80px" />
         <h2>
             {{board.device_nickname}}
             <mat-divider></mat-divider>
@@ -19,6 +28,6 @@
         <h4>
             Tipo: {{board.device_type}} <br>
             Qtd. setups: {{board.device_setup.length}}
-        </h4>
+        </h4> -->
     </div>
 </div>

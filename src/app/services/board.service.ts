@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppConstants } from '../constants/constants';
-import { BoardModel } from '../models/board-model';
+import { BoardModel, SetupModel } from '../models/board-model';
 import { ResponseBoard } from '../responses/response-board';
 import { ResponseBoards } from '../responses/response-boards';
 import { ResponseGeneric } from '../responses/response-generic';
@@ -75,6 +75,29 @@ export class BoardService {
         "license_key": data.license_key,
         "device_nickname": data.device_nickname,
         "device_type": data.device_type,
+      },
+      {
+        headers: {
+          'token': userService.token,
+          'email': userService.email,
+        },
+      },
+    );
+  }
+
+  postChangeSetup(userService: UserService, id: string, name: string, code: string, value: string, idSetup: string): Observable<ResponseGeneric>{
+    return this.httpClient.post<ResponseGeneric>(
+      AppConstants.BASE_URL_IOT + "/boards/control",
+      {
+        "license_key" : id,
+        "setup" : [
+          {           
+            "NAME": name,
+            "CODE": code,
+            "VALUE": value,
+            "_id": idSetup
+          }
+        ]
       },
       {
         headers: {
