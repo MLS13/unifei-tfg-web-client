@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params } from '@angular/router';
 import { timer } from 'rxjs';
@@ -21,6 +23,7 @@ export class SetupBoardComponent implements OnInit {
   board?: BoardModel;
   deviceSetup?: SetupModel;
   inputBooleanChecked = false;
+  inputBooleanCheckedControl = new FormControl();
   
   listOptionsCode: string[] = [
     "BME280",
@@ -87,8 +90,10 @@ export class SetupBoardComponent implements OnInit {
         this.isLoading = false;
         if(this.deviceSetup?.VALUE_TYPE == "BOOL"){
           if(this.deviceSetup?.VALUE){
+            this.inputBooleanCheckedControl.setValue(true);
             this.inputBooleanChecked = true;
           }else{
+            this.inputBooleanCheckedControl.setValue(false);
             this.inputBooleanChecked = false;
           }
         }
@@ -99,17 +104,23 @@ export class SetupBoardComponent implements OnInit {
     );
   }
 
+  changeInputBooleanChecked(value: MatCheckboxChange){
+    this.inputBooleanChecked = value.checked;
+  }
+
   save(){
     if (this.form.invalid) return;
     var data = this.form.getRawValue();
     var value;
+    
+    console.log(data['value'])
     if(this.deviceSetup?.VALUE_TYPE == "BOOL"){
       value = this.inputBooleanChecked;
-    }else{
+    }else{      
       value = data['value'];
     }
     console.log(
-      this.idBoard + " - " + data['setup_name'] + " - " + data['code'] + " - " + value + " - " + this.idSetupBoard  
+      this.idBoard + " - " + data['setup_name'] + " - " + data['code'] + " - " + this.inputBooleanChecked + " - " + this.idSetupBoard  
     )
     this.boardService.postChangeSetup(this.userService, this.idBoard, data['setup_name'], data['code'], value, this.idSetupBoard).subscribe(
       (_) => {
@@ -117,6 +128,7 @@ export class SetupBoardComponent implements OnInit {
         this.getBoard();
       },
       (it) => {
+        console.log(it.error);
         this.snackbar.open(it.error ?? "Ocorreu um erro inesperado!", "X", { duration: 3000 });
       },
     );

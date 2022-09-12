@@ -48,9 +48,9 @@
             <input matInput placeholder="Tipo de dado" formControlName="value_type">
         </mat-form-field>
 
-        <mat-slide-toggle *ngIf="deviceSetup?.VALUE_TYPE == 'BOOL'" color="primary" [checked]="inputBooleanChecked"
-            id="input-boolean">
-        </mat-slide-toggle>
+        <mat-checkbox *ngIf="deviceSetup?.VALUE_TYPE == 'BOOL'" color="primary" [formControl]="inputBooleanCheckedControl" (change)="changeInputBooleanChecked($event)">
+            {{inputBooleanChecked ? " On" : " Off"}}
+        </mat-checkbox>
 
         <mat-form-field *ngIf="deviceSetup?.VALUE_TYPE != 'BOOL'" appearance="outline" floatLabel="always">
             <mat-label>Valor</mat-label>
